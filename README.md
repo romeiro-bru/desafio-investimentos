@@ -16,7 +16,7 @@
 * Css 
 
 ## API Utilizada
-[API](https://github.com/eqi-investimentos/desafio-fake-api)
+[Fake API](https://github.com/eqi-investimentos/desafio-fake-api)
 
 
 ## Installing / Getting started 👨‍🏭
