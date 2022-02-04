@@ -1,0 +1,81 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  padding: 0 2rem;
+ }
+ 
+.display-flex {
+   display: flex;
+   flex-wrap: wrap;
+ }
+
+.rendimento label:first-of-type, .tipos-indexacao label:first-of-type {
+  margin-top: 0rem;
+}
+
+ form label {
+   display: block;
+   margin: 3rem 0 1rem 0;
+   font-size: 0.8rem;
+ }
+
+ input {
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
+  margin-right: 4rem;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.lista-indicadores {
+  display: inline-block;
+  width: 11rem;
+  margin-right: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.lista-indicadores p:first-child {
+  font-size: 0.8rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+/*////// BUTTONS ////*/
+  
+ button {
+  border: 1.3px solid black;
+  background-color: #efefef;
+  padding: 0.8rem 1rem;
+}
+
+button:focus {
+  background-color: #f58c4b;
+  color: white;
+}
+
+.rendimento button {
+  width: 5rem;
+}
+
+.left-btn {
+  border-bottom-left-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+}
+.right-btn {
+  border-bottom-right-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+}
+
+.submit-btn, .reset-btn {
+  width: 12rem;
+  border-radius: 0.4rem;
+  margin: 2rem 0.4rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
