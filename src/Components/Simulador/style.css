@@ -27,6 +27,25 @@
   margin-right: 4rem;
   outline: none;
 }
+
+ul {
+  list-style: none;
+}
+
+.lista-indicadores {
+  display: inline-block;
+  width: 11rem;
+  margin-right: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.lista-indicadores p:first-child {
+  font-size: 0.8rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
 /*////// BUTTONS ////*/
   
  button {

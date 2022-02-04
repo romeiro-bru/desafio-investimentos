@@ -1,19 +1,22 @@
 import './style.css';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export function Simulador() {
+  const [indicadores, setIndicadores] = useState([])
+
   useEffect(() => {
     const fetch = async () => {
       try {
         const response = await axios.get("http://localhost:3000/indicadores")
-        console.log(response.data)
+        setIndicadores(response.data)
       } catch (error) {
         console.log(error)
       }
     }
     fetch()
   }, [])
+  console.log(indicadores)
 
   return (
 
@@ -33,27 +36,30 @@ export function Simulador() {
 
             <label htmlFor="prazo">Prazo (em meses)</label>
             <input type="text" name="prazo" />
-
-            <label htmlFor="ipca">IPCA (ao ano)</label>
-            <input type="text" name="ipca" />
           </section>
 
-          <section className="tipos-indexaçao">
+          <section className="tipos-indexacao">
             <label htmlFor="indexaçao">Tipos de indexação</label>
             <button className="left-btn">PRÉ</button>
             <button>PÓS</button>
             <button className="right-btn">FIXADO</button>
 
             <label htmlFor="aporte-mensal">Aporte Mensal</label>
-            <input type="text" name="" id="" />
+            <input type="text" name="aporte-mensal" />
 
             <label htmlFor="rentabilidade">Rentabilidade</label>
             <input type="text" name="rentabilidade" />
-
-            <label htmlFor="cdi">CDI (ao ano)</label>
-            <input type="text" name="cdi" />
           </section>
+
         </div>
+        <ul>
+          {indicadores.map((item, i) => (
+            <li className="lista-indicadores" key={i}>
+              <p><span className="uppercase">{item.nome}</span> (ao ano)</p>
+              <p name={item.nome}>{item.valor}%</p>
+            </li>
+          ))}
+        </ul>
 
         <button className="reset-btn">Limpar campos</button>
         <button className="submit-btn">Simular</button>
