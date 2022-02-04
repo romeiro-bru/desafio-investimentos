@@ -16,7 +16,11 @@ export function Simulador() {
     }
     fetch()
   }, [])
-  console.log(indicadores)
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    console.log(e.target.name)
+  }
 
   return (
 
@@ -28,8 +32,8 @@ export function Simulador() {
         <div className="display-flex">
           <section className="rendimento">
             <label htmlFor="rendimento">Rendimento</label>
-            <button className="left-btn">Bruto</button>
-            <button className="right-btn">Líquido</button>
+            <button name="bruto" onClick={handleClick} className="left-btn">Bruto</button>
+            <button name="liquido" onClick={handleClick} className="right-btn">Líquido</button>
 
             <label htmlFor="aporte-inicial">Aporte Inicial</label>
             <input type="text" name="aporte-inicial" />
@@ -40,9 +44,9 @@ export function Simulador() {
 
           <section className="tipos-indexacao">
             <label htmlFor="indexaçao">Tipos de indexação</label>
-            <button className="left-btn">PRÉ</button>
-            <button>PÓS</button>
-            <button className="right-btn">FIXADO</button>
+            <button onClick={handleClick} name="pre" className="left-btn">PRÉ</button>
+            <button onClick={handleClick} name="pos">PÓS</button>
+            <button onClick={handleClick} name="ipca" className="right-btn">FIXADO</button>
 
             <label htmlFor="aporte-mensal">Aporte Mensal</label>
             <input type="text" name="aporte-mensal" />
