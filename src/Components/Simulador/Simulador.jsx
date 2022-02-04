@@ -1,6 +1,20 @@
 import './style.css';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 export function Simulador() {
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/indicadores")
+        console.log(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetch()
+  }, [])
+
   return (
 
     <div className="wrapper">
@@ -11,8 +25,8 @@ export function Simulador() {
         <div className="display-flex">
           <section className="rendimento">
             <label htmlFor="rendimento">Rendimento</label>
-            <button>Bruto</button>
-            <button>Líquido</button>
+            <button className="left-btn">Bruto</button>
+            <button className="right-btn">Líquido</button>
 
             <label htmlFor="aporte-inicial">Aporte Inicial</label>
             <input type="text" name="aporte-inicial" />
@@ -26,9 +40,9 @@ export function Simulador() {
 
           <section className="tipos-indexaçao">
             <label htmlFor="indexaçao">Tipos de indexação</label>
-            <button>PRÉ</button>
+            <button className="left-btn">PRÉ</button>
             <button>PÓS</button>
-            <button>FIXADO</button>
+            <button className="right-btn">FIXADO</button>
 
             <label htmlFor="aporte-mensal">Aporte Mensal</label>
             <input type="text" name="" id="" />
