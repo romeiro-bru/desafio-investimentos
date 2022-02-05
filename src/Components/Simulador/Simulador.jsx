@@ -23,11 +23,16 @@ export function Simulador() {
     console.log(e.target.name)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("submit")
+  }
+
   return (
 
     <div className="wrapper">
 
-      <form action="">
+      <form onSubmit={handleSubmit} action="">
         <h2>Simulador</h2>
 
         <div className="display-flex">
@@ -72,7 +77,7 @@ export function Simulador() {
           ))}
         </ul>
 
-        <button className="reset-btn">Limpar campos</button>
+        <button type="reset" className="reset-btn">Limpar campos</button>
         <button className="submit-btn">Simular</button>
       </form>
 
