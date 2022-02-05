@@ -1,6 +1,7 @@
 import './style.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import info from '../../assets/images/info.png';
 
 export function Simulador() {
   const [indicadores, setIndicadores] = useState([])
@@ -31,7 +32,10 @@ export function Simulador() {
 
         <div className="display-flex">
           <section className="rendimento">
-            <label htmlFor="rendimento">Rendimento</label>
+            <label htmlFor="rendimento">
+              Rendimento
+              <img src={info} alt="info" />
+            </label>
             <button name="bruto" onClick={handleClick} className="left-btn">Bruto</button>
             <button name="liquido" onClick={handleClick} className="right-btn">Líquido</button>
 
@@ -43,10 +47,13 @@ export function Simulador() {
           </section>
 
           <section className="tipos-indexacao">
-            <label htmlFor="indexaçao">Tipos de indexação</label>
+            <label htmlFor="indexaçao">
+              Tipos de indexação
+              <img src={info} alt="info" />
+            </label>
             <button onClick={handleClick} name="pre" className="left-btn">PRÉ</button>
             <button onClick={handleClick} name="pos">PÓS</button>
-            <button onClick={handleClick} name="ipca" className="right-btn">FIXADO</button>
+            <button disabled className="right-btn">FIXADO</button>
 
             <label htmlFor="aporte-mensal">Aporte Mensal</label>
             <input type="text" name="aporte-mensal" />
