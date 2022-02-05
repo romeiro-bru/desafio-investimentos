@@ -10,7 +10,8 @@
    flex-wrap: wrap;
  }
 
-.rendimento label:first-of-type, .tipos-indexacao label:first-of-type {
+.rendimento label:first-of-type,
+.tipos-indexacao label:first-of-type {
   margin-top: 0rem;
 }
 
@@ -29,7 +30,7 @@
 
  input {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text);
   background: transparent;
   margin-right: 4rem;
   outline: none;
@@ -47,7 +48,7 @@ ul {
   right: 6rem;
   width: 11rem;
   margin-right: 1rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text);
 }
 
 .lista-indicadores p:first-child {
@@ -64,15 +65,15 @@ ul {
 /*////// BUTTONS ////*/
   
  button {
-  border: 1.3px solid black;
-  color: black;
-  background-color: #efefef;
+  border: 1.3px solid var(--text);
+  color: var(--text);
+  background-color: var(--bg-color);
   padding: 0.8rem 1rem;
 }
 
 button:focus {
-  background-color: #f58c4b;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-btn-focus);
 }
 
 .rendimento button {
