@@ -78,7 +78,7 @@ export function Simulador() {
         </ul>
 
         <button type="reset" className="reset-btn">Limpar campos</button>
-        <button className="submit-btn">Simular</button>
+        <button type="submit" className="submit-btn">Simular</button>
       </form>
 
       <section className="resultado">
