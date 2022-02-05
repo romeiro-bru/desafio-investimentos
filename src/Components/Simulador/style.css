@@ -30,10 +30,14 @@
 
 ul {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row-reverse;
 }
 
 .lista-indicadores {
-  display: inline-block;
+  position: relative;
+  right: 6rem;
   width: 11rem;
   margin-right: 1rem;
   border-bottom: 1px solid black;
@@ -43,6 +47,10 @@ ul {
   font-size: 0.8rem;
 }
 
+.lista-indicadores:first-of-type {
+  right: 3rem;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -50,6 +58,7 @@ ul {
   
  button {
   border: 1.3px solid black;
+  color: black;
   background-color: #efefef;
   padding: 0.8rem 1rem;
 }
