@@ -1,6 +1,7 @@
 import './style.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import info from '../../assets/images/info.png';
 
 export function Simulador() {
   const [indicadores, setIndicadores] = useState([])
@@ -16,20 +17,32 @@ export function Simulador() {
     }
     fetch()
   }, [])
-  console.log(indicadores)
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    console.log(e.target.name)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("submit")
+  }
 
   return (
 
     <div className="wrapper">
 
-      <form action="">
+      <form onSubmit={handleSubmit} action="">
         <h2>Simulador</h2>
 
         <div className="display-flex">
           <section className="rendimento">
-            <label htmlFor="rendimento">Rendimento</label>
-            <button className="left-btn">Bruto</button>
-            <button className="right-btn">Líquido</button>
+            <label htmlFor="rendimento">
+              Rendimento
+              <img src={info} alt="info" />
+            </label>
+            <button name="bruto" onClick={handleClick} className="left-btn">Bruto</button>
+            <button name="liquido" onClick={handleClick} className="right-btn">Líquido</button>
 
             <label htmlFor="aporte-inicial">Aporte Inicial</label>
             <input type="text" name="aporte-inicial" />
@@ -39,10 +52,13 @@ export function Simulador() {
           </section>
 
           <section className="tipos-indexacao">
-            <label htmlFor="indexaçao">Tipos de indexação</label>
-            <button className="left-btn">PRÉ</button>
-            <button>PÓS</button>
-            <button className="right-btn">FIXADO</button>
+            <label htmlFor="indexaçao">
+              Tipos de indexação
+              <img src={info} alt="info" />
+            </label>
+            <button onClick={handleClick} name="pre" className="left-btn">PRÉ</button>
+            <button onClick={handleClick} name="pos">PÓS</button>
+            <button disabled className="right-btn">FIXADO</button>
 
             <label htmlFor="aporte-mensal">Aporte Mensal</label>
             <input type="text" name="aporte-mensal" />
@@ -61,8 +77,8 @@ export function Simulador() {
           ))}
         </ul>
 
-        <button className="reset-btn">Limpar campos</button>
-        <button className="submit-btn">Simular</button>
+        <button type="reset" className="reset-btn">Limpar campos</button>
+        <button type="submit" className="submit-btn">Simular</button>
       </form>
 
       <section className="resultado">
