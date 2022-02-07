@@ -15,9 +15,6 @@
 * React
 * Css 
 
-## API Utilizada
-[Fake API](https://github.com/eqi-investimentos/desafio-fake-api)
-
 
 ## Installing / Getting started 👨‍🏭
 
