@@ -5,6 +5,7 @@ import info from '../../assets/images/info.png';
 
 export function Simulador() {
   const [indicadores, setIndicadores] = useState([])
+  const [inputs, setInputs] = useState({})
 
   useEffect(() => {
     const fetch = async () => {
@@ -20,12 +21,17 @@ export function Simulador() {
 
   const handleClick = (e) => {
     e.preventDefault()
-    console.log(e.target.name)
+    // console.log(e.target.name)
+  }
+
+  const handleInputChange = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
+    console.log(e.target.name, e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("submit")
+    console.log(inputs)
   }
 
   return (
@@ -45,10 +51,10 @@ export function Simulador() {
             <button name="liquido" onClick={handleClick} className="right-btn">Líquido</button>
 
             <label htmlFor="aporte-inicial">Aporte Inicial</label>
-            <input type="text" name="aporte-inicial" />
+            <input onChange={handleInputChange} type="text" name="aporte-inicial" />
 
             <label htmlFor="prazo">Prazo (em meses)</label>
-            <input type="text" name="prazo" />
+            <input onChange={handleInputChange} type="text" name="prazo" />
           </section>
 
           <section className="tipos-indexacao">
@@ -61,10 +67,10 @@ export function Simulador() {
             <button disabled className="right-btn">FIXADO</button>
 
             <label htmlFor="aporte-mensal">Aporte Mensal</label>
-            <input type="text" name="aporte-mensal" />
+            <input onChange={handleInputChange} type="text" name="aporte-mensal" />
 
             <label htmlFor="rentabilidade">Rentabilidade</label>
-            <input type="text" name="rentabilidade" />
+            <input onChange={handleInputChange} type="text" name="rentabilidade" />
           </section>
 
         </div>
