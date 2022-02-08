@@ -1,15 +1,15 @@
+<div  align="center">
+  <img  src="https://media-exp1.licdn.com/dms/image/C4E0BAQHYV5mfqZ2v1g/company-logo_200_200/0/1628119777901?e=1652313600&v=beta&t=Lt3wTbKNvnbjKnqEqkG3XolVm8cFjCAFrO329-9lB0g"  height="130" alt="logo eqi">
+</div>
+<h3 align="center">Desafio Front-End da EQI Investimentos, uma empresa vinculada ao BTG Pactual.</h3>
 
+<br>
 
-<p>
+<p align="center">
   <img  src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"  height="25" alt="html">
   <img  src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"  height="25" alt="css">
-    <img  src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"  height="25" alt="react" />
+  <img  src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"  height="25" alt="react" />
 </p>
-
-<span  align="left">
-  <img  src="https://media.giphy.com/media/yDqL3q9s20beF3hdf5/giphy.gif"  height="135" alt="investment gif">
-</span>
-<br>
 
 ## Technologies 👩‍💻
 * React
