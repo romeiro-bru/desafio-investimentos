@@ -4,52 +4,23 @@
   text-align: left;
   padding: 0 2rem;
  }
- 
-.display-flex {
-   display: flex;
-   flex-wrap: wrap;
- }
-
-.rendimento label:first-of-type,
-.tipos-indexacao label:first-of-type {
-  margin-top: 0rem;
-}
-
-.rendimento label:nth-of-type(2) {
-  opacity: 0.6;
-}
 
  form label {
    display: block;
-   margin: 3rem 0 1rem 0;
+   margin: 2.6rem 0 1rem 0;
    font-size: 0.8rem;
  }
 
- input {
-  border: none;
-  border-bottom: 1px solid var(--text);
-  background: transparent;
-  margin-right: 4rem;
-  outline: none;
-}
-
-ul {
-  list-style: none;
-}
-
-form ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.lista-indicadores {
+ /* IPCA e CDI */
+.indicadores {
   right: 6rem;
   width: 11rem;
   margin-right: 1rem;
   border-bottom: 1px solid var(--text);
 }
 
-.lista-indicadores p:first-child {
+.indicadores p {
+  margin-top: 2.4rem;
   font-size: 0.8rem;
 }
 
@@ -68,19 +39,6 @@ form ul {
 button:focus {
   background-color: var(--primary-color);
   color: var(--text-btn-focus);
-}
-
-.rendimento button {
-  width: 5rem;
-}
-
-.left-btn {
-  border-bottom-left-radius: 0.4rem;
-  border-top-left-radius: 0.4rem;
-}
-.right-btn {
-  border-bottom-right-radius: 0.4rem;
-  border-top-right-radius: 0.4rem;
 }
 
 .submit-btn, .reset-btn {
