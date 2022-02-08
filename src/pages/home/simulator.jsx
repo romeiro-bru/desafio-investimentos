@@ -40,15 +40,16 @@ export const Simulator = () => {
   //add usecallback
   const handleInputChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value })
-    console.log(e.target.name, e.target.value)
   }
 
   const handleClick = (e) => {
     e.preventDefault()
-    console.log(1, e.target.name)
+    console.log(2, e.target.name)
   }
 
   //add usecallback
+  //add validation, only make call if input fields are not empty
+  //set button'bruto' and 'pos' as default
   const handleSubmit = (e) => {
     e.preventDefault()
     const fetch = async () => {
