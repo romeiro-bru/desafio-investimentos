@@ -4,7 +4,7 @@ import info from '../../assets/images/info.png';
 export const ButtonsGroup = ({ label, buttons }) => {
   return (
     <div>
-      <label>{label}
+      <label className="btn-group-label">{label}
         <img className="info" src={info} alt="info" />
       </label>
       {buttons.map((button, i) => (
