@@ -1,5 +1,5 @@
 import './style.css';
-import { Simulator } from '../home/simulator';
+import { Simulator } from './simulator';
 import { Results } from '../home/results';
 
 export function Home() {
