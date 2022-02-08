@@ -5,13 +5,20 @@ import { ButtonsGroup } from '../../Components/ButtonsGroup/ButtonsGroup';
 import { Input } from '../../Components/Input/Input';
 
 const buttonsRendimento = [
-  { id: 0, name: "bruto", onClick: () => console.log("bruto"), children: "Bruto" },
-  { id: 1, name: "liquido", onClick: () => console.log("liquido"), children: "Líquido", }
+  { id: 0, name: "bruto", children: "Bruto" },
+  { id: 1, name: "liquido", children: "Líquido", }
 ]
 
 const buttonsIndex = [
   { id: 0, name: "pre", onClick: () => console.log("pré"), children: "PRÉ" },
   { id: 1, name: "pos", onClick: () => console.log("pós"), children: "POS", }
+]
+
+const inputFields = [
+  { id: 0, name: "aporte-inicial", children: "Aporte Inicial" },
+  { id: 0, name: "aporte-mensal", children: "Aporte Mensal" },
+  { id: 0, name: "prazo", children: "Prazo (em meses)" },
+  { id: 0, name: "rentabilidade", children: "Rentabilidade" },
 ]
 
 export const Simulator = () => {
@@ -36,6 +43,11 @@ export const Simulator = () => {
     console.log(e.target.name, e.target.value)
   }
 
+  const handleClick = (e) => {
+    e.preventDefault()
+    console.log(1, e.target.name)
+  }
+
   //add usecallback
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -53,12 +65,9 @@ export const Simulator = () => {
     <form onSubmit={handleSubmit}>
       <h2>Simulador</h2>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <ButtonsGroup label="Rendimento" buttons={buttonsRendimento} />
-        <ButtonsGroup label="Tipos de indexação" buttons={buttonsIndex} />
-        <Input onChange={handleInputChange} name="aporte-inicial" label="Aporte Inicial" />
-        <Input onChange={handleInputChange} name="aporte-mensal" label="Aporte Mensal" />
-        <Input onChange={handleInputChange} name="prazo" label="Prazo (em meses)" />
-        <Input onChange={handleInputChange} name="rentabilidade" label="Rentabilidade" />
+        <ButtonsGroup handleClick={handleClick} buttons={buttonsRendimento} label="Rendimento" />
+        <ButtonsGroup handleClick={handleClick} buttons={buttonsIndex} label="Tipos de indexação" />
+        <Input handleInputChange={handleInputChange} inputFields={inputFields} />
         <div className="indicadores">
           <p>IPCA (ao ano)</p>
           <p name="ipca">{indicadores.length === 0 ? "-" : indicadores[1].valor}%</p>
