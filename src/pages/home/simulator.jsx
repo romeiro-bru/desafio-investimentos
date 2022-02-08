@@ -1,7 +1,8 @@
 import axios from 'axios';
+import "./style.css";
 import { useState, useEffect } from 'react';
-import { ButtonsGroup } from '../../Components/ButtonsGroup';
-import { Input } from '../../Components/Input';
+import { ButtonsGroup } from '../../Components/ButtonsGroup/ButtonsGroup';
+import { Input } from '../../Components/Input/Input';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", onClick: () => console.log("bruto"), children: "Bruto" },
@@ -49,7 +50,7 @@ export const Simulator = () => {
     fetch()
   }
   return (
-    <form onSubmit={handleSubmit} action="">
+    <form onSubmit={handleSubmit}>
       <h2>Simulador</h2>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
         <ButtonsGroup label="Rendimento" buttons={buttonsRendimento} />
@@ -58,11 +59,11 @@ export const Simulator = () => {
         <Input onChange={handleInputChange} name="aporte-mensal" label="Aporte Mensal" />
         <Input onChange={handleInputChange} name="prazo" label="Prazo (em meses)" />
         <Input onChange={handleInputChange} name="rentabilidade" label="Rentabilidade" />
-        <div>
+        <div className="indicadores">
           <p>IPCA (ao ano)</p>
           <p name="ipca">{indicadores.length === 0 ? "-" : indicadores[1].valor}%</p>
         </div>
-        <div>
+        <div className="indicadores">
           <p>CDI (ao ano)</p>
           <p name="cdi">{indicadores.length === 0 ? "-" : indicadores[0].valor}%</p>
         </div>
