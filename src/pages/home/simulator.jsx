@@ -3,7 +3,6 @@ import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
 import { ButtonsGroup } from '../../Components/ButtonsGroup/ButtonsGroup';
 import { Input } from '../../Components/Input/Input';
-import { Results } from './results';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", children: "Bruto" },
@@ -19,15 +18,11 @@ const inputFields = [
   { id: 0, name: "prazo", children: "Prazo (em meses)" },
   { id: 0, name: "rentabilidade", children: "Rentabilidade" },
 ]
-const defaultBtnRendimento = "bruto"
-const defaultButtons = [{}, {}]
 
-export const Simulator = () => {
+export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }) => {
   const [indicadores, setIndicadores] = useState([])
   const [inputs, setInputs] = useState({})
-  const [selectedBtn, setSelectedBtn] = useState(defaultBtnRendimento)
-  const [selectedButtons, setSelectedButtons] = useState(defaultButtons)
-  const [simulationResult, setSimulationResult] = useState([])
+  const [selectedButton, setSelectedButton] = useState("bruto")
 
   useEffect(() => {
     const fetchIndicators = async () => {
@@ -47,10 +42,8 @@ export const Simulator = () => {
   )
   const handleClick = (e) => {
     e.preventDefault()
-    console.log(e.target)
-    // setSelectedBtn(e.target.name)
-    if (selectedBtn !== e.target.name) {
-      setSelectedBtn(e.target.name);
+    if (selectedButton !== e.target.name) {
+      setSelectedButton(e.target.name);
     }
   }
 
@@ -61,21 +54,24 @@ export const Simulator = () => {
     const fetchSimulation = async () => {
       try {
         const response = await axios.get("http://localhost:3000/simulacoes")
-        setSimulationResult(response.data)
-        // console.log(3, simulations.filter(x => x.tipoIndexacao === selectedBtn))
+        setSimulations(response.data)
       } catch (error) {
         console.log(error)
       }
     }
     fetchSimulation()
-  }, [simulationResult])
+  }, [])
+
+  useEffect(() => {
+    setFilteredSimulation(simulations.filter(x => x.tipoRendimento === selectedButton && x.tipoIndexacao === "pre"))
+  }, [simulations])
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Simulador</h2>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <ButtonsGroup handleClick={handleClick} defaultButton={defaultBtnRendimento} selectedBtn={selectedBtn} buttons={buttonsRendimento} label="Rendimento" />
-        <ButtonsGroup handleClick={handleClick} selectedBtn={selectedBtn} buttons={buttonsIndex} label="Tipos de indexação" />
+        <ButtonsGroup handleClick={handleClick} defaultButton={selectedButton} selectedButton={selectedButton} buttons={buttonsRendimento} label="Rendimento" />
+        <ButtonsGroup handleClick={handleClick} defaultButton={selectedButton} selectedButton={selectedButton} buttons={buttonsIndex} label="Tipos de indexação" />
         <Input handleInputChange={handleInputChange} inputFields={inputFields} />
         <div className="indicadores">
           <p>IPCA (ao ano)</p>
@@ -88,8 +84,6 @@ export const Simulator = () => {
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
       <button type="submit" className="submit-btn">Simular</button>
-
-      {/* <Results simulationResult={simulationResult} /> */}
     </form>
   )
 }
