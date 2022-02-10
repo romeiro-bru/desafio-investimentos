@@ -1,8 +1,7 @@
 import './style.css';
 import info from '../../assets/images/info.png';
 
-export const ButtonsGroup = ({ label, buttons, handleClick, selectedBtn }) => {
-
+export const ButtonsGroup = ({ label, buttons, handleClick, selectedButton }) => {
   return (
     <div>
       <label className="btn-group-label">{label}
@@ -11,8 +10,8 @@ export const ButtonsGroup = ({ label, buttons, handleClick, selectedBtn }) => {
       {buttons.map((button, i) => (
         <button onClick={handleClick} type="button" name={button.name} id={button.id} key={i}
           style={{
-            color: button.name === selectedBtn ? "white" : "",
-            backgroundColor: button.name === selectedBtn ? "#f58c4b" : ""
+            color: button.name === selectedButton ? "white" : "",
+            backgroundColor: button.name === selectedButton ? "#f58c4b" : ""
           }}
         >
           {button.children}
