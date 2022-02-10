@@ -1,0 +1,25 @@
+.results h2 {
+margin-bottom: 2.4rem;
+}
+
+.results-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2.4rem 3.3rem; 
+}
+
+.results-list li {
+  box-shadow: 0px 0px 7px #b3b2b2;
+  text-align: center;
+  padding: 0rem 1rem;
+}
+
+.results-list p:first-of-type {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.green-text {
+  color: #4f9f36;
+  font-weight: 500;
+}
