@@ -66,6 +66,7 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
   useEffect(() => {
     setFilteredSimulation(simulations.filter(x => x.tipoRendimento === selectedButton && x.tipoIndexacao === "pre"))
   }, [simulations])
+  console.log(Object.values(inputs).length >= 3)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -84,9 +85,7 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
-      {Object.values(inputs).length >= 3}
-
-      <button type="submit" className="submit-btn"
+      <button disabled={Object.values(inputs).length < 3} type="submit" className="submit-btn"
         style={{
           backgroundColor: Object.values(inputs).length >= 3 ? "#f58c4b" : "",
           color: Object.values(inputs).length >= 3 ? "white" : "",
