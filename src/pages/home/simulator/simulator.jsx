@@ -40,6 +40,7 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
     setInputs({ ...inputs, [e.target.name]: e.target.value })
   }, [inputs]
   )
+
   const handleClick = (e) => {
     e.preventDefault()
     if (selectedButton !== e.target.name) {
@@ -83,7 +84,14 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
-      <button type="submit" className="submit-btn">Simular</button>
+      {Object.values(inputs).length >= 3}
+
+      <button type="submit" className="submit-btn"
+        style={{
+          backgroundColor: Object.values(inputs).length >= 3 ? "#f58c4b" : "",
+          color: Object.values(inputs).length >= 3 ? "white" : "",
+        }}
+      >Simular</button>
     </form>
   )
 }
