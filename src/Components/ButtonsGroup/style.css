@@ -1,6 +1,6 @@
 .info {
   position: relative;
-  left: 4.8rem;
+  left: 4.5rem;
   width: 1rem;
   opacity: 0.5;
 }
@@ -9,12 +9,14 @@
   margin-top: 0rem;
 }
 
-button[name="bruto"], button[name="pre"] {
+button[name="bruto"], 
+button[name="pre"] {
   width: 5rem;
   border-bottom-left-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
 }
-button[name="liquido"], button[name="pos"] {
+button[name="liquido"],
+button[name="pos"] {
   width: 5rem;
   border-bottom-right-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
