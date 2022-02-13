@@ -11,13 +11,19 @@
 
 button[name="bruto"], 
 button[name="pre"] {
-  width: 5rem;
+  width: 6.2rem;
   border-bottom-left-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
 }
 button[name="liquido"],
 button[name="pos"] {
-  width: 5rem;
+  width: 6.2rem;
   border-bottom-right-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
+}
+
+@media (max-width: 550px) {
+  .btn-group-label {
+    margin-top: 2rem;
+  }
 }

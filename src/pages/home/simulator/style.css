@@ -4,6 +4,14 @@ form label {
   font-size: 0.8rem;
 }
 
+form h2 {
+  font-size: 1.5rem;
+}
+
+label[for=aporte-inicial] {
+  opacity: 0.6;
+}
+
 /* IPCA e CDI */
 .indicadores {
  right: 6rem;
@@ -26,7 +34,7 @@ button {
  border: 1.3px solid var(--text);
  color: var(--text);
  background-color: var(--bg-color);
- padding: 0.8rem 1rem;
+ padding: 1rem 1rem;
  cursor: pointer;
 }
 
@@ -36,14 +44,55 @@ button:focus {
 }
 
 .submit-btn, .reset-btn {
- width: 12rem;
+ width: 14rem;
  border-radius: 0.4rem;
  margin: 2rem 0.4rem;
  font-weight: bold;
- font-size: 1rem;
+ font-size: 1.2rem;
 }
 
 .submit-btn {
  background-color: var(--submit-btn);
  border: none;
+}
+
+.simulator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 550px) {
+  form h2 {
+    text-align: center;
+  }
+  .simulator {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .simulator input {
+    width: 98%;
+  }
+
+  .indicadores {
+    position: relative;
+    right: 0rem;
+    left: 0.3rem;
+    width: 54%;
+  }
+
+  .submit-btn, .reset-btn {
+    position: relative;
+    left: 6.3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .indicadores {
+    width: 85%;
+  }
+  .submit-btn, .reset-btn {
+    position: relative;
+    left: 1.3rem;
+  }
 }
