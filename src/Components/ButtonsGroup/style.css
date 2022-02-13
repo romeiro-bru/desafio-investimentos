@@ -22,7 +22,7 @@ button[name="pos"] {
   border-top-right-radius: 0.4rem;
 }
 
-.simulator button img {
+.check {
   width: 0.8rem;
   margin-right: 0.1rem;
   vertical-align: bottom;
