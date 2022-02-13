@@ -16,7 +16,7 @@ export const ButtonsGroup = ({ label, buttons, handleClick, selectedButton }) =>
           }}
         >
           {button.name === selectedButton ?
-            <img src={check} alt="check" />
+            <img className="check" src={check} alt="check" />
             : ""
           }
           {button.children}
