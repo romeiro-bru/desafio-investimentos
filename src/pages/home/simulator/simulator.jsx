@@ -48,8 +48,6 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
     }
   }
 
-  //add validation, only make call if input fields are not empty
-  //set button'bruto' and 'pos' as default
   const handleSubmit = useCallback((e) => {
     e.preventDefault()
     const fetchSimulation = async () => {
@@ -66,12 +64,11 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
   useEffect(() => {
     setFilteredSimulation(simulations.filter(x => x.tipoRendimento === selectedButton && x.tipoIndexacao === "pre"))
   }, [simulations])
-  console.log(Object.values(inputs).length >= 3)
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Simulador</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+      <div className="simulator">
         <ButtonsGroup handleClick={handleClick} defaultButton={selectedButton} selectedButton={selectedButton} buttons={buttonsRendimento} label="Rendimento" />
         <ButtonsGroup handleClick={handleClick} defaultButton={selectedButton} selectedButton={selectedButton} buttons={buttonsIndex} label="Tipos de indexação" />
         <Input handleInputChange={handleInputChange} inputFields={inputFields} />
