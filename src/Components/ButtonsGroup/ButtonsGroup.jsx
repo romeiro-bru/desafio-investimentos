@@ -1,5 +1,6 @@
 import './style.css';
 import info from '../../assets/images/info.png';
+import check from '../../assets/images/checkmark.png'
 
 export const ButtonsGroup = ({ label, buttons, handleClick, selectedButton }) => {
   return (
@@ -14,6 +15,10 @@ export const ButtonsGroup = ({ label, buttons, handleClick, selectedButton }) =>
             backgroundColor: button.name === selectedButton ? "#f58c4b" : ""
           }}
         >
+          {button.name === selectedButton ?
+            <img src={check} alt="check" />
+            : ""
+          }
           {button.children}
         </button>
       ))}
