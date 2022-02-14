@@ -38,11 +38,6 @@ button {
  cursor: pointer;
 }
 
-button:focus {
- background-color: var(--primary-color);
- color: var(--text-btn-focus);
-}
-
 .submit-btn, .reset-btn {
  width: 14rem;
  border-radius: 0.4rem;
