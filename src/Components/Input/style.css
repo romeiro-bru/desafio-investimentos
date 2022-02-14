@@ -5,7 +5,3 @@ input {
   margin-right: 4rem;
   outline: none;
 }
-
-label[name="aporte-inicial"] {
-  opacity: 0.6;
-}

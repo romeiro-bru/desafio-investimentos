@@ -1,5 +1,6 @@
 .results h2 {
-margin-bottom: 2.4rem;
+  font-size: 1.5rem;
+  margin-bottom: 2.4rem;
 }
 
 .results-list {
@@ -22,4 +23,30 @@ margin-bottom: 2.4rem;
 .green-text {
   color: #4f9f36;
   font-weight: 500;
+}
+
+@media (max-width: 1058px) {
+  .results-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .results-list {
+    grid-template-columns: 1fr;
+    position: relative;
+    left: 4rem;
+  }
+  .results h2 {
+    position: relative;
+    left: 4.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .results-list {
+    grid-template-columns: 1fr;
+    position: relative;
+    left: 0rem;
+  }
 }

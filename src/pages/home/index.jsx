@@ -1,6 +1,6 @@
 import './style.css';
 import { useState } from 'react';
-import { Simulator } from './simulator';
+import { Simulator } from './simulator/simulator';
 import { Results } from './results/results';
 
 export function Home() {

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
-import { ButtonsGroup } from '../../Components/ButtonsGroup/ButtonsGroup';
-import { Input } from '../../Components/Input/Input';
+import { ButtonsGroup } from '../../../Components/ButtonsGroup/ButtonsGroup';
+import { Input } from '../../../Components/Input/Input';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", children: "Bruto" },
@@ -40,6 +40,7 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
     setInputs({ ...inputs, [e.target.name]: e.target.value })
   }, [inputs]
   )
+
   const handleClick = (e) => {
     e.preventDefault()
     if (selectedButton !== e.target.name) {
@@ -47,8 +48,6 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
     }
   }
 
-  //add validation, only make call if input fields are not empty
-  //set button'bruto' and 'pos' as default
   const handleSubmit = useCallback((e) => {
     e.preventDefault()
     const fetchSimulation = async () => {
@@ -69,7 +68,7 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
   return (
     <form onSubmit={handleSubmit}>
       <h2>Simulador</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+      <div className="simulator">
         <ButtonsGroup handleClick={handleClick} defaultButton={selectedButton} selectedButton={selectedButton} buttons={buttonsRendimento} label="Rendimento" />
         <ButtonsGroup handleClick={handleClick} defaultButton={selectedButton} selectedButton={selectedButton} buttons={buttonsIndex} label="Tipos de indexação" />
         <Input handleInputChange={handleInputChange} inputFields={inputFields} />
@@ -83,7 +82,12 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
-      <button type="submit" className="submit-btn">Simular</button>
+      <button disabled={Object.values(inputs).length < 3} type="submit" className="submit-btn"
+        style={{
+          backgroundColor: Object.values(inputs).length >= 3 ? "#f58c4b" : "",
+          color: Object.values(inputs).length >= 3 ? "white" : "",
+        }}
+      >Simular</button>
     </form>
   )
 }
