@@ -11,7 +11,7 @@ export const Input = ({ handleInputChange, inputFields, isValidInput, inputs }) 
                 "" : "red"
             }}
           >{input.children}</label>
-          <input onChange={handleInputChange} type="text" pattern="[0-9]*" name={input.name} />
+          <input sufix="R$" onChange={handleInputChange} type="text" pattern="[0-9]*" name={input.name} />
         </div>
       ))}
     </>

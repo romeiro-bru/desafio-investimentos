@@ -1,8 +1,8 @@
 import axios from 'axios';
 import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
-import { ButtonsGroup } from '../../../Components/ButtonsGroup/ButtonsGroup';
-import { Input } from '../../../Components/Input/Input';
+import { ButtonsGroup } from '../ButtonsGroup/ButtonsGroup';
+import { Input } from '../Input/Input';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", children: "Bruto" },
@@ -21,7 +21,7 @@ const inputFields = [
 ]
 
 
-export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }) => {
+export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
   const [indicadores, setIndicadores] = useState([])
   const [inputs, setInputs] = useState({})
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })

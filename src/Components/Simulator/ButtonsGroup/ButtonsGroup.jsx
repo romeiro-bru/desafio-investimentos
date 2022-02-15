@@ -1,6 +1,6 @@
 import './style.css';
-import info from '../../assets/images/info.png';
-import check from '../../assets/images/checkmark.png'
+import info from '../../../assets/images/info.png';
+import check from '../../../assets/images/checkmark.png'
 
 export const ButtonsGroup = ({ label, buttons, handleClick, selectedButtons }) => {
   return (
