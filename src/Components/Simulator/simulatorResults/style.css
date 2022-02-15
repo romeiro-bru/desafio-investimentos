@@ -37,10 +37,6 @@
     position: relative;
     left: 4rem;
   }
-  .results h2 {
-    position: relative;
-    left: 4.5rem;
-  }
 }
 
 @media (max-width: 360px) {
