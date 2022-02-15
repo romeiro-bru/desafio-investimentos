@@ -14,13 +14,13 @@
 
 > Simule um investimento de acordo com os tipos de rendimento e indexação escolhidos.
 
-## Sobre o Desafio
+## Sobre o Desafio 👩‍🏫
 O objetivo é construir um front-end para um Simulador de Investimentos. A aplicação deverá permitir ao usuário realizar uma simulação de rendimentos de acordo com o tipo de indexação e tipo de rendimento escolhido. O front-end deve ser construído utilizando JavaScript puro ou React e seguindo os wireframes no repositório de desafio.
 
 ## Tecnologias 👩‍💻
 * React
 
-## Documentação da API
+## Documentação da API 📑
 [Fake API](https://github.com/eqi-investimentos/desafio-fake-api)
 
 
