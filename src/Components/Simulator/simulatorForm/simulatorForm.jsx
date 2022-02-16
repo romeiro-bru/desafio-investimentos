@@ -14,10 +14,10 @@ const buttonsIndex = [
 ]
 
 const inputFields = [
-  { id: 0, name: "aporte-inicial", children: "Aporte Inicial" },
-  { id: 1, name: "aporte-mensal", children: "Aporte Mensal" },
-  { id: 2, name: "prazo", children: "Prazo (em meses)" },
-  { id: 3, name: "rentabilidade", children: "Rentabilidade" },
+  { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número" },
+  { name: "aporte-mensal", children: "Aporte Mensal", errorMessage: "Aporte deve ser um número" },
+  { name: "prazo", children: "Prazo (em meses)", errorMessage: "Prazo deve ser um número" },
+  { name: "rentabilidade", children: "Rentabilidade", errorMessage: "Renabilidade deve ser um número" },
 ]
 
 export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
@@ -25,6 +25,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   const [inputs, setInputs] = useState({})
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
+  const onlyNumbers = /^[0-9\b]+$/
 
   useEffect(() => {
     const fetchIndicators = async () => {
@@ -39,7 +40,6 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   }, [])
 
   const handleInputChange = useCallback((e) => {
-    const onlyNumbers = /^[0-9\b]+$/
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     setIsValidInput(onlyNumbers.test(e.target.value))
   }, [inputs]
