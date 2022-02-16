@@ -85,11 +85,11 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
           buttons={buttonsIndex}
           label="Tipos de indexação" />
         <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} inputFields={inputFields} />
-        <div className="indicadores">
+        <div className="indicators">
           <p>IPCA (ao ano)</p>
           <p name="ipca">{indicators.length === 0 ? "-" : indicators[1].valor}%</p>
         </div>
-        <div className="indicadores">
+        <div className="indicators">
           <p>CDI (ao ano)</p>
           <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
         </div>

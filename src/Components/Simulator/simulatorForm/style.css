@@ -13,19 +13,19 @@ label[for=aporte-inicial] {
 }
 
 /* IPCA e CDI */
-.indicadores {
+.indicators {
  right: 6rem;
  width: 11rem;
  margin-right: 1rem;
  border-bottom: 1px solid var(--text);
 }
 
-.indicadores p {
+.indicators p {
  margin-top: 2.4rem;
  font-size: 0.8rem;
 }
 
-.lista-indicadores:first-of-type {
+.lista-indicators:first-of-type {
  right: 3rem;
 }
 /*////// BUTTONS ////*/
@@ -70,7 +70,7 @@ button {
     width: 98%;
   }
 
-  .indicadores {
+  .indicators {
     position: relative;
     right: 0rem;
     left: 0.3rem;
@@ -84,7 +84,7 @@ button {
 }
 
 @media (max-width: 360px) {
-  .indicadores {
+  .indicators {
     width: 85%;
   }
   .submit-btn, .reset-btn {
