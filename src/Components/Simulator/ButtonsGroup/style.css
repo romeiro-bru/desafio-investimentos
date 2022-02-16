@@ -6,7 +6,10 @@
 }
 
 .btn-group-label {
+  display: flex;
+  justify-content: space-between;
   margin-top: 0rem;
+  width: 8rem;
 }
 
 button[name="bruto"], 
