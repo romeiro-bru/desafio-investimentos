@@ -8,10 +8,17 @@ export const Input = ({ handleInputChange, inputFields, isValidInput, inputs }) 
           <label htmlFor={input.name}
             style={{
               color: isValidInput && input.name !== Object.keys(inputs) ?
-                "" : "red"
+                "" : "red",
             }}
           >{input.children}</label>
-          <input sufix="R$" onChange={handleInputChange} type="text" pattern="[0-9]*" name={input.name} />
+          <input onChange={handleInputChange} name={input.name} type="text" pattern="[0-9]*"
+            style={{
+              borderBottom: isValidInput && input.name !== Object.keys(inputs) ?
+                "" : "1px solid red"
+            }} />
+          {isValidInput && input.name !== Object.keys(inputs) ?
+            "" : <span className="error-message">{input.errorMessage}</span>
+          }
         </div>
       ))}
     </>
