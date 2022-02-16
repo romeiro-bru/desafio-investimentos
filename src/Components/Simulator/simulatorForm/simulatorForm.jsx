@@ -1,8 +1,8 @@
 import axios from 'axios';
 import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
-import { ButtonsGroup } from '../ButtonsGroup/ButtonsGroup';
-import { Input } from '../Input/Input';
+import { ButtonsGroup } from '../../Simulator/ButtonsGroup/ButtonsGroup';
+import { Input } from '../../Simulator/Input/Input';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", children: "Bruto" },
@@ -20,9 +20,8 @@ const inputFields = [
   { id: 3, name: "rentabilidade", children: "Rentabilidade" },
 ]
 
-
 export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
-  const [indicadores, setIndicadores] = useState([])
+  const [indicators, setIndicators] = useState([])
   const [inputs, setInputs] = useState({})
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
@@ -31,7 +30,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
     const fetchIndicators = async () => {
       try {
         const response = await axios.get("http://localhost:3000/indicadores")
-        setIndicadores(response.data)
+        setIndicators(response.data)
       } catch (error) {
         console.log(error)
       }
@@ -88,11 +87,11 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
         <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} inputFields={inputFields} />
         <div className="indicadores">
           <p>IPCA (ao ano)</p>
-          <p name="ipca">{indicadores.length === 0 ? "-" : indicadores[1].valor}%</p>
+          <p name="ipca">{indicators.length === 0 ? "-" : indicators[1].valor}%</p>
         </div>
         <div className="indicadores">
           <p>CDI (ao ano)</p>
-          <p name="cdi">{indicadores.length === 0 ? "-" : indicadores[0].valor}%</p>
+          <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
