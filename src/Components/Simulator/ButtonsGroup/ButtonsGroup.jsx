@@ -15,10 +15,11 @@ export const ButtonsGroup = ({ label, buttons, handleClick, selectedButtons }) =
             backgroundColor: button.name === selectedButtons ? "#f58c4b" : ""
           }}
         >
-          {button.name === selectedButtons ?
-            <img className="check" src={check} alt="check" />
-            : ""
-          }
+          <img className="check" src={check} alt="check"
+            style={{
+              visibility: button.name === selectedButtons ? "visible" : "hidden"
+            }}
+          />
           {button.children}
         </button>
       ))}
