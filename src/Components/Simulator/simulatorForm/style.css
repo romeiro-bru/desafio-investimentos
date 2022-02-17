@@ -9,7 +9,7 @@ form h2 {
 }
 
 label[for=aporte-inicial] {
-  opacity: 0.6;
+  color: var(--lighter-text);
 }
 
 /* IPCA e CDI */
