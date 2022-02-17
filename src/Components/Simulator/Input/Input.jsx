@@ -1,6 +1,6 @@
 import './style.css';
 
-export const Input = ({ handleInputChange, inputFields, isValidInput, inputs }) => {
+export const Input = ({ handleInputChange, inputFields, isValidInput, inputs, setFocus }) => {
   return (
     <>
       {inputFields.map((input, i) => (
@@ -11,14 +11,18 @@ export const Input = ({ handleInputChange, inputFields, isValidInput, inputs }) 
                 "" : "red",
             }}
           >{input.children}</label>
-          <input onChange={handleInputChange} name={input.name} type="text" pattern="[0-9]*"
+          <input onChange={handleInputChange} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)}
+            name={input.name} type="text" pattern="[0-9]*"
             style={{
               borderBottom: isValidInput && input.name !== Object.keys(inputs) ?
                 "" : "1px solid red"
             }} />
-          {isValidInput && input.name !== Object.keys(inputs) ?
-            "" : <span className="error-message">{input.errorMessage}</span>
-          }
+          <span className="error-message"
+            style={{
+              color: isValidInput && input.name !== Object.keys(inputs) ? "transparent" : "red"
+            }}>{input.errorMessage}</span>
+
+
         </div>
       ))}
     </>
