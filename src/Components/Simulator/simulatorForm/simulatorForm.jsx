@@ -9,15 +9,15 @@ const buttonsRendimento = [
   { id: 1, name: "liquido", children: "Líquido", }
 ]
 const buttonsIndex = [
-  { id: 2, name: "pre", children: "PRÉ" },
-  { id: 3, name: "pos", children: "POS" }
+  { id: 2, name: "pre", children: "PRE" },
+  { id: 3, name: "pos", children: "PÓS" }
 ]
 
 const inputFields = [
   { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número" },
   { name: "aporte-mensal", children: "Aporte Mensal", errorMessage: "Aporte deve ser um número" },
-  { name: "prazo", children: "Prazo (em meses)", errorMessage: "Prazo deve ser um número" },
-  { name: "rentabilidade", children: "Rentabilidade", errorMessage: "Renabilidade deve ser um número" },
+  { name: "prazo", children: "Prazo (em meses)" },
+  { name: "rentabilidade", children: "Rentabilidade" },
 ]
 
 export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
