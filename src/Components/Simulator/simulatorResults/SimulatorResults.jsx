@@ -1,6 +1,6 @@
 import './style.css';
 
-export const Results = ({ filteredSimulation }) => {
+export const SimulatorResults = ({ filteredSimulation }) => {
 
   return (
     <section className="results">

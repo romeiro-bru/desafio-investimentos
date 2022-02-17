@@ -3,5 +3,12 @@ input {
   border-bottom: 1px solid var(--text);
   background: transparent;
   margin-right: 4rem;
+  padding: 0.3rem 0;
   outline: none;
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
 }

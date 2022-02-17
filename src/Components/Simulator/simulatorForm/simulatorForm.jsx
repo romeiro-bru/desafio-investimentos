@@ -1,37 +1,37 @@
 import axios from 'axios';
 import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
-import { ButtonsGroup } from '../../../Components/ButtonsGroup/ButtonsGroup';
-import { Input } from '../../../Components/Input/Input';
+import { ButtonsGroup } from '../../Simulator/ButtonsGroup/ButtonsGroup';
+import { Input } from '../../Simulator/Input/Input';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", children: "Bruto" },
   { id: 1, name: "liquido", children: "Líquido", }
 ]
 const buttonsIndex = [
-  { id: 2, name: "pre", children: "PRÉ" },
-  { id: 3, name: "pos", children: "POS" }
+  { id: 2, name: "pre", children: "PRE" },
+  { id: 3, name: "pos", children: "PÓS" }
 ]
 
 const inputFields = [
-  { id: 0, name: "aporte-inicial", children: "Aporte Inicial" },
-  { id: 1, name: "aporte-mensal", children: "Aporte Mensal" },
-  { id: 2, name: "prazo", children: "Prazo (em meses)" },
-  { id: 3, name: "rentabilidade", children: "Rentabilidade" },
+  { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número" },
+  { name: "aporte-mensal", children: "Aporte Mensal", errorMessage: "Aporte deve ser um número" },
+  { name: "prazo", children: "Prazo (em meses)" },
+  { name: "rentabilidade", children: "Rentabilidade" },
 ]
 
-
-export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }) => {
-  const [indicadores, setIndicadores] = useState([])
+export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
+  const [indicators, setIndicators] = useState([])
   const [inputs, setInputs] = useState({})
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
+  const onlyNumbers = /^[0-9\b]+$/
 
   useEffect(() => {
     const fetchIndicators = async () => {
       try {
         const response = await axios.get("http://localhost:3000/indicadores")
-        setIndicadores(response.data)
+        setIndicators(response.data)
       } catch (error) {
         console.log(error)
       }
@@ -40,7 +40,6 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
   }, [])
 
   const handleInputChange = useCallback((e) => {
-    const onlyNumbers = /^[0-9\b]+$/
     setInputs({ ...inputs, [e.target.name]: e.target.value })
     setIsValidInput(onlyNumbers.test(e.target.value))
   }, [inputs]
@@ -86,13 +85,13 @@ export const Simulator = ({ setSimulations, simulations, setFilteredSimulation }
           buttons={buttonsIndex}
           label="Tipos de indexação" />
         <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} inputFields={inputFields} />
-        <div className="indicadores">
+        <div className="indicators">
           <p>IPCA (ao ano)</p>
-          <p name="ipca">{indicadores.length === 0 ? "-" : indicadores[1].valor}%</p>
+          <p name="ipca">{indicators.length === 0 ? "-" : indicators[1].valor}%</p>
         </div>
-        <div className="indicadores">
+        <div className="indicators">
           <p>CDI (ao ano)</p>
-          <p name="cdi">{indicadores.length === 0 ? "-" : indicadores[0].valor}%</p>
+          <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
