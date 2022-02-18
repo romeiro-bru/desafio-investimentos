@@ -1,4 +1,5 @@
 import './style.css';
+import InputMask from 'react-input-mask';
 
 const inputFields = [
   { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número" },
@@ -9,6 +10,19 @@ const inputFields = [
 
 export const Input = ({ handleInputChange, isValidInput }) => {
 
+  const defaultMask = {
+    prefix: 'R$',
+    suffix: '',
+    includeThousandsSeparator: true,
+    thousandsSeparatorSymbol: '.',
+    allowDecimal: true,
+    decimalSymbol: ',',
+    decimalLimit: 2, // how many digits allowed after the decimal
+    integerLimit: 7, // limit length of integer numbers
+    allowNegative: false,
+    allowLeadingZeroes: false,
+  }
+
   return (
     <>
       {inputFields.map((input, i) => (
@@ -16,7 +30,8 @@ export const Input = ({ handleInputChange, isValidInput }) => {
           <label htmlFor={input.name} style={{ color: isValidInput ? "" : "red" }}>
             {input.children}
           </label>
-          <input
+          <InputMask
+            mask={defaultMask}
             type="text"
             name={input.name}
             onChange={handleInputChange}
