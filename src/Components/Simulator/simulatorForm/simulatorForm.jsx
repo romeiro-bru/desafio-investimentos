@@ -14,8 +14,8 @@ const buttonsIndex = [
 ]
 
 const inputFields = [
-  { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número" },
-  { name: "aporte-mensal", children: "Aporte Mensal", errorMessage: "Aporte deve ser um número" },
+  { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número", required: true },
+  { name: "aporte-mensal", children: "Aporte Mensal", errorMessage: "Aporte deve ser um número", required: true },
   { name: "prazo", children: "Prazo (em meses)" },
   { name: "rentabilidade", children: "Rentabilidade" },
 ]
@@ -59,9 +59,9 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   }, [])
 
   useEffect(() => {
-    setFilteredSimulation(simulations.filter(x =>
-      x.tipoRendimento === selectedButtons.rendimento &&
-      x.tipoIndexacao === selectedButtons.indexacao))
+    setFilteredSimulation(simulations.filter(simulation =>
+      simulation.tipoRendimento === selectedButtons.rendimento &&
+      simulation.tipoIndexacao === selectedButtons.indexacao))
   }, [simulations])
 
   return (
