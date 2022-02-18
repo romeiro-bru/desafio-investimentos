@@ -5,6 +5,10 @@
   opacity: 0.6;
 }
 
+.info:hover {
+  opacity: 0.4;
+}
+
 .btn-group-label {
   display: flex;
   justify-content: space-between;
