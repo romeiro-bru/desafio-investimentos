@@ -12,10 +12,16 @@ const buttonsIndex = [
   { id: 2, name: "pre", children: "PRE" },
   { id: 3, name: "pos", children: "PÓS" }
 ]
+const inputsInicialState = {
+  "aporte-inicial": "",
+  "aporte-mensal": "",
+  "prazo": "",
+  "rentabilidade": ""
+}
 
 export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
   const [indicators, setIndicators] = useState([])
-  const [inputs, setInputs] = useState({})
+  const [inputs, setInputs] = useState(inputsInicialState)
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
   const onlyNumbers = /^[0-9\b]+$/
@@ -57,6 +63,8 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
       simulation.tipoIndexacao === selectedButtons.indexacao))
   }, [simulations])
 
+  console.log(Object.values(inputs["aporte-inicial"]).length !== 0)
+
   return (
     <form onSubmit={handleSubmit}>
       <h2>Simulador</h2>
@@ -87,11 +95,12 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
           <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
         </div>
       </div>
-      <button type="reset" className="reset-btn">Limpar campos</button>
-      <button disabled={Object.values(inputs).length < 4} type="submit" className="submit-btn"
+      <button onClick={() => setInputs(inputsInicialState)} type="reset" className="reset-btn">Limpar campos</button>
+      <button type="submit" className="submit-btn"
+        disabled={Object.values(inputs["aporte-inicial"]).length === 0 && Object.values(inputs["aporte-mensal"]).length === 0}
         style={{
-          backgroundColor: Object.values(inputs).length >= 4 && isValidInput ? "#f58c4b" : "",
-          color: Object.values(inputs).length >= 4 && isValidInput ? "white" : "",
+          backgroundColor: Object.values(inputs["aporte-inicial"]).length !== 0 && isValidInput ? "#f58c4b" : "",
+          color: Object.values(inputs["aporte-inicial"]).length !== 0 && isValidInput ? "white" : "",
         }}
       >Simular</button>
     </form>
