@@ -12,13 +12,20 @@ const buttonsIndex = [
   { id: 2, name: "pre", children: "PRE" },
   { id: 3, name: "pos", children: "PÓS" }
 ]
+const initialValue = {
+  "aporte-inicial": "",
+  "aporte-mensal": "",
+  "prazo": "",
+  "retabilidade": ""
+}
 
 export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
   const [indicators, setIndicators] = useState([])
-  const [inputs, setInputs] = useState({})
+  const [inputs, setInputs] = useState(initialValue)
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
   const onlyNumbers = /^[0-9\b]+$/
+  const checkFill = inputs[Object.keys(inputs)[0]].length !== 0 && inputs[Object.keys(inputs)[1]].length !== 0
 
   useEffect(() => {
     const fetchIndicators = async () => {
@@ -88,10 +95,10 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
-      <button disabled={Object.values(inputs).length < 4} type="submit" className="submit-btn"
+      <button disabled={!checkFill} type="submit" className="submit-btn"
         style={{
-          backgroundColor: Object.values(inputs).length >= 4 && isValidInput ? "#f58c4b" : "",
-          color: Object.values(inputs).length >= 4 && isValidInput ? "white" : "",
+          backgroundColor: checkFill && isValidInput ? "#f58c4b" : "",
+          color: checkFill && isValidInput ? "white" : "",
         }}
       >Simular</button>
     </form>
