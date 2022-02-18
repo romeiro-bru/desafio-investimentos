@@ -7,7 +7,7 @@ const inputFields = [
   { name: "rentabilidade", children: "Rentabilidade" },
 ]
 
-export const Input = ({ handleInputChange, isValidInput, inputs }) => {
+export const Input = ({ handleInputChange, isValidInput }) => {
 
   return (
     <>
@@ -19,7 +19,6 @@ export const Input = ({ handleInputChange, isValidInput, inputs }) => {
           <input
             type="text"
             name={input.name}
-            value={inputs[input.name] || ""}
             onChange={handleInputChange}
             style={{ borderBottom: isValidInput ? "" : "1px solid red" }} />
           <span className="error-message"
