@@ -35,3 +35,7 @@ Você precisa ter <strong>[Node.js](https://nodejs.org/en/download/)</strong>, <
 Siga as instruções da [Fake API](https://github.com/eqi-investimentos/desafio-fake-api) e abra a porta ```http://localhost:3000```
 
 No diretório do projeto digite o comando ```yarn start``` e abra em ```http://localhost:3001``` 
+
+## Próximos Passos
+* Adicionar gráficos
+* Adicionar testes
