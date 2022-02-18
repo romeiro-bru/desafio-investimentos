@@ -41,3 +41,7 @@ No diretório do projeto digite o comando ```yarn start``` e abra em ```http://l
 - [ ] Adicionar gráficos
 - [ ] Adicionar testes
 - [ ] Adicionar tooltip ao ícone info
+
+## 
+
+Made with 🫀 by Bruna Romeiro 🥰
