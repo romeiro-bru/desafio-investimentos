@@ -13,13 +13,6 @@ const buttonsIndex = [
   { id: 3, name: "pos", children: "PÓS" }
 ]
 
-const inputFields = [
-  { name: "aporte-inicial", children: "Aporte Inicial", errorMessage: "Aporte deve ser um número", required: true },
-  { name: "aporte-mensal", children: "Aporte Mensal", errorMessage: "Aporte deve ser um número", required: true },
-  { name: "prazo", children: "Prazo (em meses)" },
-  { name: "rentabilidade", children: "Rentabilidade" },
-]
-
 export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
   const [indicators, setIndicators] = useState([])
   const [inputs, setInputs] = useState({})
@@ -84,7 +77,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
           selectedButtons={selectedButtons.indexacao}
           buttons={buttonsIndex}
           label="Tipos de indexação" />
-        <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} inputFields={inputFields} />
+        <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} />
         <div className="indicators">
           <p>IPCA (ao ano)</p>
           <p name="ipca">{indicators.length === 0 ? "-" : indicators[1].valor}%</p>
