@@ -94,7 +94,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
           <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
         </div>
       </div>
-      <button type="reset" className="reset-btn">Limpar campos</button>
+      <button onClick={() => setInputs(initialValue)} type="reset" className="reset-btn">Limpar campos</button>
       <button disabled={!checkFill} type="submit" className="submit-btn"
         style={{
           backgroundColor: checkFill && isValidInput ? "#f58c4b" : "",
