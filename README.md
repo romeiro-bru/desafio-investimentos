@@ -24,7 +24,7 @@ O objetivo é construir um front-end para um Simulador de Investimentos. A aplic
 [Fake API](https://github.com/eqi-investimentos/desafio-fake-api)
 
 ## Instalação / Inicialização 👨‍🏭
-Você precisa ter <strong>[Node.js](https://nodejs.org/en/download/)</strong>, <strong>[Git](https://git-scm.com/downloads)</strong>, <strong>[Yarn](https://yarnpkg.com/)</strong> instalados para rodar os comandos a seguir.
+⚠️ Você precisa ter <strong>[Node.js](https://nodejs.org/en/download/)</strong>, <strong>[Git](https://git-scm.com/downloads)</strong>, <strong>[Yarn](https://yarnpkg.com/)</strong> instalados para rodar os comandos a seguir.
 <br>
 <br>
 ```git clone https://github.com/romeiro-bru/desafio-investimentos.git```
@@ -32,11 +32,11 @@ Você precisa ter <strong>[Node.js](https://nodejs.org/en/download/)</strong>, <
 ```yarn install```
 <br>
 <br>
-Siga as instruções da [Fake API](https://github.com/eqi-investimentos/desafio-fake-api) e abra a porta ```http://localhost:3000```
+⚠️ Siga as instruções da [Fake API](https://github.com/eqi-investimentos/desafio-fake-api) e abra a porta ```http://localhost:3000```
 
 No diretório do projeto digite o comando ```yarn start``` e abra em ```http://localhost:3001``` 
 
-## Próximos Passos
+## Próximos Passos 🚧
 - [ ] Adicionar input mask
 - [ ] Adicionar gráficos
 - [ ] Adicionar testes
