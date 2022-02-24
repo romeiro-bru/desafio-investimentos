@@ -100,8 +100,8 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
       <button type="reset" className="reset-btn">Limpar campos</button>
       <button disabled={!isDisabled} type="submit" className="submit-btn"
         style={{
-          backgroundColor: isDisabled && isValidInput ? "#f58c4b" : "",
-          color: isDisabled && isValidInput ? "white" : "",
+          backgroundColor: isDisabled && isValidInput ? "var(--primary-color)" : "",
+          color: isDisabled && isValidInput ? "var(--text-btn-focus)" : "",
         }}
       >Simular</button>
     </form>
