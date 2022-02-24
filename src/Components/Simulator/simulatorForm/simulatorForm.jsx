@@ -25,7 +25,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
   const onlyNumbers = /^[0-9\b]+$/
-  const checkFill = Object.values(inputs)[0].length !== 0 && Object.values(inputs)[1].length
+  const isDisabled = Object.values(inputs)[0].length !== 0 && Object.values(inputs)[1].length
 
   useEffect(() => {
     const fetchIndicators = async () => {
@@ -95,10 +95,10 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
         </div>
       </div>
       <button onClick={() => setInputs(initialValue)} type="reset" className="reset-btn">Limpar campos</button>
-      <button disabled={!checkFill} type="submit" className="submit-btn"
+      <button disabled={!isDisabled} type="submit" className="submit-btn"
         style={{
-          backgroundColor: checkFill && isValidInput ? "#f58c4b" : "",
-          color: checkFill && isValidInput ? "white" : "",
+          backgroundColor: isDisabled && isValidInput ? "#f58c4b" : "",
+          color: isDisabled && isValidInput ? "white" : "",
         }}
       >Simular</button>
     </form>
