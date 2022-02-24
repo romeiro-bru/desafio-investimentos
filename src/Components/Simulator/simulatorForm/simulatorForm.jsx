@@ -14,6 +14,7 @@ const buttonsIndex = [
   { name: "pre", children: "PRE" },
   { name: "pos", children: "PÓS" }
 ]
+const buttonsInitialValue = { rendimento: "bruto", indexacao: "pos" }
 const initialValue = {
   "aporte-inicial": "",
   "aporte-mensal": "",
@@ -25,7 +26,7 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
   const [simulations, setSimulations] = useState([])
   const [indicators, setIndicators] = useState([])
   const [inputs, setInputs] = useState(initialValue)
-  const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
+  const [selectedButtons, setSelectedButtons] = useState(buttonsInitialValue)
   const [isValidInput, setIsValidInput] = useState(true)
   const onlyNumbers = /^[0-9\b]+$/
   const isDisabled = Object.values(inputs)[0].length !== 0 && Object.values(inputs)[1].length
@@ -62,9 +63,10 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
   }, [])
 
   useEffect(() => {
-    setFilteredSimulation(simulations.filter(simulation =>
+    const filtered = simulations.filter(simulation =>
       simulation.tipoRendimento === selectedButtons.rendimento &&
-      simulation.tipoIndexacao === selectedButtons.indexacao))
+      simulation.tipoIndexacao === selectedButtons.indexacao)
+    setFilteredSimulation(filtered)
   }, [simulations])
 
   return (
