@@ -31,6 +31,13 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
   const onlyNumbers = /^[0-9\b]+$/
   const isDisabled = Object.values(inputs)[0].length !== 0 && Object.values(inputs)[1].length
 
+  const ipca = indicators.length === 0 ? "-" : indicators[1].valor
+  const cdi = indicators.length === 0 ? "-" : indicators[0].valor
+  const buttonDisabledBg = {
+    backgroundColor: isDisabled && isValidInput ? "var(--primary-color)" : "",
+    color: isDisabled && isValidInput ? "var(--text-btn-focus)" : "",
+  }
+
   useEffect(() => {
     const fetchIndicators = async () => {
       try {
@@ -92,20 +99,17 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
         <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} />
         <div className="indicators">
           <p>IPCA (ao ano)</p>
-          <p name="ipca">{indicators.length === 0 ? "-" : indicators[1].valor}%</p>
+          <p name="ipca">{ipca}%</p>
         </div>
         <div className="indicators">
           <p>CDI (ao ano)</p>
-          <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
+          <p name="cdi">{cdi}%</p>
         </div>
       </div>
       <button type="reset" className="reset-btn">Limpar campos</button>
-      <button disabled={!isDisabled} type="submit" className="submit-btn"
-        style={{
-          backgroundColor: isDisabled && isValidInput ? "var(--primary-color)" : "",
-          color: isDisabled && isValidInput ? "var(--text-btn-focus)" : "",
-        }}
-      >Simular</button>
+      <button disabled={!isDisabled} style={buttonDisabledBg} type="submit" className="submit-btn">
+        Simular
+      </button>
     </form>
   )
 }
