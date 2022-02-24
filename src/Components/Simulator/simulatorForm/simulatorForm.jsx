@@ -25,7 +25,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
   const [isValidInput, setIsValidInput] = useState(true)
   const onlyNumbers = /^[0-9\b]+$/
-  const checkFill = inputs[Object.keys(inputs)[0]].length !== 0 && inputs[Object.keys(inputs)[1]].length !== 0
+  const checkFill = Object.values(inputs)[0].length !== 0 && Object.values(inputs)[1].length
 
   useEffect(() => {
     const fetchIndicators = async () => {
