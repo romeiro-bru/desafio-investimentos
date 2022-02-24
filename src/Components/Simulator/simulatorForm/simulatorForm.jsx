@@ -68,7 +68,7 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
   }, [simulations])
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} onReset={() => setInputs(initialValue)}>
       <h2>Simulador</h2>
       <div className="simulator">
         <ButtonsGroup handleClick={(e) => setSelectedButtons({
@@ -97,7 +97,7 @@ export const SimulatorForm = ({ setFilteredSimulation }) => {
           <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
         </div>
       </div>
-      <button onClick={() => setInputs(initialValue)} type="reset" className="reset-btn">Limpar campos</button>
+      <button type="reset" className="reset-btn">Limpar campos</button>
       <button disabled={!isDisabled} type="submit" className="submit-btn"
         style={{
           backgroundColor: isDisabled && isValidInput ? "#f58c4b" : "",
