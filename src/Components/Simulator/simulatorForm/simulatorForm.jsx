@@ -1,8 +1,8 @@
 import axios from 'axios';
 import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
-import { ButtonsGroup } from '../../Simulator/ButtonsGroup/ButtonsGroup';
-import { Input } from '../../Simulator/Input/Input';
+import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
+import { Input } from './Input/Input';
 
 const buttonsRendimento = [
   { id: 0, name: "bruto", children: "Bruto" },
