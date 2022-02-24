@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { Input } from './Input/Input';
 
+const endpoint = "http://localhost:3000"
+
 const buttonsRendimento = [
   { name: "bruto", children: "Bruto" },
   { name: "liquido", children: "Líquido", }
@@ -30,7 +32,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   useEffect(() => {
     const fetchIndicators = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/indicadores")
+        const response = await axios.get(`${endpoint}/indicadores`)
         setIndicators(response.data)
       } catch (error) {
         console.log(error)
@@ -49,7 +51,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
     e.preventDefault()
     const fetchSimulation = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/simulacoes")
+        const response = await axios.get(`${endpoint}/simulacoes`)
         setSimulations(response.data)
       } catch (error) {
         console.log(error)
