@@ -1,17 +1,20 @@
 import axios from 'axios';
 import "./style.css";
 import { useState, useEffect, useCallback } from 'react';
-import { ButtonsGroup } from '../../Simulator/ButtonsGroup/ButtonsGroup';
-import { Input } from '../../Simulator/Input/Input';
+import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
+import { Input } from './Input/Input';
+
+const endpoint = "http://localhost:3000"
 
 const buttonsRendimento = [
-  { id: 0, name: "bruto", children: "Bruto" },
-  { id: 1, name: "liquido", children: "Líquido", }
+  { name: "bruto", children: "Bruto" },
+  { name: "liquido", children: "Líquido", }
 ]
 const buttonsIndex = [
-  { id: 2, name: "pre", children: "PRE" },
-  { id: 3, name: "pos", children: "PÓS" }
+  { name: "pre", children: "PRE" },
+  { name: "pos", children: "PÓS" }
 ]
+const buttonsInitialValue = { rendimento: "bruto", indexacao: "pos" }
 const initialValue = {
   "aporte-inicial": "",
   "aporte-mensal": "",
@@ -19,18 +22,26 @@ const initialValue = {
   "retabilidade": ""
 }
 
-export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
+export const SimulatorForm = ({ setFilteredSimulation }) => {
+  const [simulations, setSimulations] = useState([])
   const [indicators, setIndicators] = useState([])
   const [inputs, setInputs] = useState(initialValue)
-  const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
+  const [selectedButtons, setSelectedButtons] = useState(buttonsInitialValue)
   const [isValidInput, setIsValidInput] = useState(true)
   const onlyNumbers = /^[0-9\b]+$/
-  const checkFill = inputs[Object.keys(inputs)[0]].length !== 0 && inputs[Object.keys(inputs)[1]].length !== 0
+  const isDisabled = Object.values(inputs)[0].length !== 0 && Object.values(inputs)[1].length
+
+  const ipca = indicators.length === 0 ? "-" : indicators[1].valor
+  const cdi = indicators.length === 0 ? "-" : indicators[0].valor
+  const buttonDisabledBg = {
+    backgroundColor: isDisabled && isValidInput ? "var(--primary-color)" : "",
+    color: isDisabled && isValidInput ? "var(--text-btn-focus)" : "",
+  }
 
   useEffect(() => {
     const fetchIndicators = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/indicadores")
+        const response = await axios.get(`${endpoint}/indicadores`)
         setIndicators(response.data)
       } catch (error) {
         console.log(error)
@@ -49,7 +60,7 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
     e.preventDefault()
     const fetchSimulation = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/simulacoes")
+        const response = await axios.get(`${endpoint}/simulacoes`)
         setSimulations(response.data)
       } catch (error) {
         console.log(error)
@@ -59,13 +70,14 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
   }, [])
 
   useEffect(() => {
-    setFilteredSimulation(simulations.filter(simulation =>
+    const filtered = simulations.filter(simulation =>
       simulation.tipoRendimento === selectedButtons.rendimento &&
-      simulation.tipoIndexacao === selectedButtons.indexacao))
+      simulation.tipoIndexacao === selectedButtons.indexacao)
+    setFilteredSimulation(filtered)
   }, [simulations])
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} onReset={() => setInputs(initialValue)}>
       <h2>Simulador</h2>
       <div className="simulator">
         <ButtonsGroup handleClick={(e) => setSelectedButtons({
@@ -87,20 +99,17 @@ export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulati
         <Input isValidInput={isValidInput} inputs={inputs} handleInputChange={handleInputChange} />
         <div className="indicators">
           <p>IPCA (ao ano)</p>
-          <p name="ipca">{indicators.length === 0 ? "-" : indicators[1].valor}%</p>
+          <p name="ipca">{ipca}%</p>
         </div>
         <div className="indicators">
           <p>CDI (ao ano)</p>
-          <p name="cdi">{indicators.length === 0 ? "-" : indicators[0].valor}%</p>
+          <p name="cdi">{cdi}%</p>
         </div>
       </div>
-      <button onClick={() => setInputs(initialValue)} type="reset" className="reset-btn">Limpar campos</button>
-      <button disabled={!checkFill} type="submit" className="submit-btn"
-        style={{
-          backgroundColor: checkFill && isValidInput ? "#f58c4b" : "",
-          color: checkFill && isValidInput ? "white" : "",
-        }}
-      >Simular</button>
+      <button type="reset" className="reset-btn">Limpar campos</button>
+      <button disabled={!isDisabled} style={buttonDisabledBg} type="submit" className="submit-btn">
+        Simular
+      </button>
     </form>
   )
 }
