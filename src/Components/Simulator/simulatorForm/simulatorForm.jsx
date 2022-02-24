@@ -21,7 +21,8 @@ const initialValue = {
   "retabilidade": ""
 }
 
-export const SimulatorForm = ({ setSimulations, simulations, setFilteredSimulation }) => {
+export const SimulatorForm = ({ setFilteredSimulation }) => {
+  const [simulations, setSimulations] = useState([])
   const [indicators, setIndicators] = useState([])
   const [inputs, setInputs] = useState(initialValue)
   const [selectedButtons, setSelectedButtons] = useState({ rendimento: "bruto", indexacao: "pos" })
