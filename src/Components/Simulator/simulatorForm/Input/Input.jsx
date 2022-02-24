@@ -8,12 +8,15 @@ const inputFields = [
 ]
 
 export const Input = ({ handleInputChange, isValidInput, inputs }) => {
+  const checkInputLabel = { color: isValidInput ? "" : "red" }
+  const checkInputBorder = { borderBottom: isValidInput ? "" : "1px solid red" }
+  const checkInputMessage = { color: isValidInput ? "transparent" : "red" }
 
   return (
     <>
       {inputFields.map((input, i) => (
         <div key={i}>
-          <label htmlFor={input.name} style={{ color: isValidInput ? "" : "red" }}>
+          <label htmlFor={input.name} style={checkInputLabel}>
             {input.children}
           </label>
           <input
@@ -21,9 +24,8 @@ export const Input = ({ handleInputChange, isValidInput, inputs }) => {
             name={input.name}
             value={inputs[input.name]}
             onChange={handleInputChange}
-            style={{ borderBottom: isValidInput ? "" : "1px solid red" }} />
-          <span className="error-message"
-            style={{ color: isValidInput ? "transparent" : "red" }}>
+            style={checkInputBorder} />
+          <span className="error-message" style={checkInputMessage}>
             {input.errorMessage}
           </span>
         </div>
