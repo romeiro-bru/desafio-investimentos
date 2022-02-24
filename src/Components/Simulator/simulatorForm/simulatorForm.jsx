@@ -5,12 +5,12 @@ import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { Input } from './Input/Input';
 
 const buttonsRendimento = [
-  { id: 0, name: "bruto", children: "Bruto" },
-  { id: 1, name: "liquido", children: "Líquido", }
+  { name: "bruto", children: "Bruto" },
+  { name: "liquido", children: "Líquido", }
 ]
 const buttonsIndex = [
-  { id: 2, name: "pre", children: "PRE" },
-  { id: 3, name: "pos", children: "PÓS" }
+  { name: "pre", children: "PRE" },
+  { name: "pos", children: "PÓS" }
 ]
 const initialValue = {
   "aporte-inicial": "",
