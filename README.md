@@ -2,7 +2,6 @@
   <img  src="https://media-exp1.licdn.com/dms/image/C4E0BAQHYV5mfqZ2v1g/company-logo_200_200/0/1628119777901?e=1652313600&v=beta&t=Lt3wTbKNvnbjKnqEqkG3XolVm8cFjCAFrO329-9lB0g"  height="130" alt="logo eqi">
 </div>
 <h3 align="center">Desafio Front-End da EQI Investimentos</h3>
-<h3 align="center">Invista em suas escolhas</h3>
 
 <br>
 
@@ -18,7 +17,8 @@
 O objetivo é construir um front-end para um Simulador de Investimentos. A aplicação deverá permitir ao usuário realizar uma simulação de rendimentos de acordo com o tipo de indexação e tipo de rendimento escolhido. O front-end deve ser construído utilizando JavaScript puro ou React e seguindo os wireframes no repositório de desafio.
 
 ## Tecnologias 👩‍💻
-* React
+* [React](https://pt-br.reactjs.org/)
+* [Axios](https://axios-http.com/docs/intro)
 
 ## Documentação da API 📑
 [Fake API](https://github.com/eqi-investimentos/desafio-fake-api)
@@ -34,13 +34,12 @@ O objetivo é construir um front-end para um Simulador de Investimentos. A aplic
 <br>
 ⚠️ Siga as instruções da [Fake API](https://github.com/eqi-investimentos/desafio-fake-api) e abra a porta ```http://localhost:3000```
 
-No diretório do projeto digite o comando ```yarn start``` e abra em ```http://localhost:3001``` 
+No diretório do projeto digite o comando ```yarn start``` 
 
 ## Próximos Passos 🚧
 - [ ] Adicionar input mask
 - [ ] Adicionar gráficos
 - [ ] Adicionar testes
-- [ ] Adicionar tooltip ao ícone info
 
 ## 
 
