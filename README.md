@@ -16,6 +16,9 @@
 ## Sobre o Desafio 👩‍🏫
 O objetivo é construir um front-end para um Simulador de Investimentos. A aplicação deverá permitir ao usuário realizar uma simulação de rendimentos de acordo com o tipo de indexação e tipo de rendimento escolhido. O front-end deve ser construído utilizando JavaScript puro ou React e seguindo os wireframes no repositório de desafio.
 
+## Demo
+<img height="390" src="https://user-images.githubusercontent.com/56081906/156659419-3453e643-2a16-418f-bb44-2f9c6f5b9e70.gif" />
+
 ## Tecnologias 👩‍💻
 * [React](https://pt-br.reactjs.org/)
 * [Axios](https://axios-http.com/docs/intro)
