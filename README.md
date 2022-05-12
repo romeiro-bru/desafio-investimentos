@@ -1,5 +1,5 @@
 <div  align="center">
-  <img  src="https://media-exp1.licdn.com/dms/image/C4E0BAQHYV5mfqZ2v1g/company-logo_200_200/0/1628119777901?e=1652313600&v=beta&t=Lt3wTbKNvnbjKnqEqkG3XolVm8cFjCAFrO329-9lB0g"  height="110" alt="logo eqi">
+  <img  src="https://user-images.githubusercontent.com/56081906/168138784-7a8158ae-578b-4bfa-a34a-b1773df28bed.png"  height="80" alt="logo">
 </div>
 <h3 align="center">Desafio Front-End da EQI Investimentos</h3>
 
